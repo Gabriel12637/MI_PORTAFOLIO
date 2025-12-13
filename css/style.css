@@ -1,35 +1,47 @@
+/* Paleta personalizada (proporcionada) y estilos completos */
+
+:root {
+    --bg: #FFF6F7;           /* fondo suave para contraste con la paleta */
+    --surface: #ffffff;      /* blanco para tarjetas / superficies */
+    --muted: rgba(220,88,109,0.06); /* sutil usando el rosa rojizo */
+    --text: #4C1D3D;         /* Púrpura muy oscuro (texto principal) */
+    --subtext: #852E4E;      /* Vino rojizo (texto secundario) */
+    --accent: #DC586D;       /* Rosa rojizo fuerte (acento principal) */
+    --accent-hover: #A33757; /* Magenta oscuro (hover / alterno) */
+    --accent-deep: #852E4E;  /* Vino para bordes o detalles */
+    --glass: rgba(220,88,109,0.10);
+    --shadow: rgba(76,29,61,0.06);
+}
+
 /* Reset y configuración base */
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-}
-
 html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+}
+
 /* Header Styles */
 .header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    background: var(--glass);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 20px var(--shadow);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease;
-    
 }
 
 .nav {
@@ -43,11 +55,8 @@ html {
 
 .logo {
     font-size: 1.8rem;
-    font-weight: bold;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 700;
+    color: var(--text);
 }
 
 .nav-menu {
@@ -58,14 +67,14 @@ html {
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--text);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
     position: relative;
 }
 
 .nav-menu a:hover {
-    color: #667eea;
+    color: var(--accent);
 }
 
 .nav-menu a::after {
@@ -75,8 +84,8 @@ html {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    transition: width 0.3s ease;
+    background: var(--accent);
+    transition: width 0.25s ease;
 }
 
 .nav-menu a:hover::after {
@@ -98,6 +107,8 @@ html {
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: transparent;
+    position: relative;
 }
 
 .profile-container {
@@ -110,68 +121,69 @@ html {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 5px solid rgba(163,55,87,0.08);
+    box-shadow: 0 10px 30px var(--shadow);
     transition: transform 0.3s ease;
 }
 
 .profile-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .hero-content {
     flex: 1;
     text-align: center;
-    color: white;
+    color: var(--text);
 }
 
 .hero-title {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    opacity: 0.9;
+    color: var(--subtext);
     min-height: 2rem;
 }
 
 .hero-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    opacity: 0.8;
+    color: var(--subtext);
     line-height: 1.8;
 }
 
+/* CTA minimalista */
 .cta-button {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: transparent;
+    color: var(--accent);
     padding: 12px 30px;
     text-decoration: none;
     border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+    font-weight: 700;
+    transition: all 0.18s ease;
+    border: 2px solid var(--accent);
     position: relative;
     overflow: hidden;
 }
 
 .cta-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--accent);
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 18px rgba(163,55,87,0.10);
 }
 
 /* Section Styles */
 .about, .projects, .contact {
-    background: white;
+    background: var(--surface);
     margin: 2rem 0;
     padding: 4rem 5%;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 30px var(--shadow);
+    color: var(--text);
 }
 
 .section-header {
@@ -182,15 +194,12 @@ html {
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text);
 }
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--subtext);
 }
 
 /* About Section */
@@ -203,7 +212,7 @@ html {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     text-align: center;
-    color: #555;
+    color: var(--subtext);
 }
 
 .skills-section, .specialties {
@@ -213,7 +222,7 @@ html {
 .skills-title, .specialties-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--text);
 }
 
 .skills-list, .specialties-list {
@@ -221,42 +230,14 @@ html {
 }
 
 .skill-item, .specialties-list li {
-    background: #f8f9fa;
+    background: linear-gradient(180deg, rgba(220,88,109,0.06), rgba(133,46,78,0.03));
     margin: 0.5rem 0;
     padding: 1rem;
     border-radius: 8px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent-deep);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards;
-}
-
-.skill-item:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.skill-item:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.skill-item:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.specialties-list li:nth-child(1) {
-    animation-delay: 0.4s;
-}
-
-.specialties-list li:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.specialties-list li:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.specialties-list li:nth-child(4) {
-    animation-delay: 0.7s;
 }
 
 /* Projects Section */
@@ -269,11 +250,11 @@ html {
 }
 
 .project-card {
-    background: white;
-    border-radius: 15px;
+    background: var(--surface);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards;
@@ -288,14 +269,15 @@ html {
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(76,29,61,0.06);
 }
 
 .project-image-container {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    background: linear-gradient(180deg, rgba(133,46,78,0.08), rgba(220,88,109,0.02));
 }
 
 .project-image {
@@ -306,21 +288,21 @@ html {
 }
 
 .project-card:hover .project-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .project-info {
-    padding: 1.5rem;
+    padding: 1.25rem;
 }
 
 .project-title {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: var(--text);
 }
 
 .project-description {
-    color: #666;
+    color: var(--subtext);
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -332,12 +314,13 @@ html {
 }
 
 .tool-tag {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
+    background: rgba(220,88,109,0.06);
+    color: var(--text);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
+    border: 1px solid rgba(76,29,61,0.03);
 }
 
 /* Contact Section */
@@ -350,7 +333,7 @@ html {
 }
 
 .contact-info {
-    background: #f8f9fa;
+    background: linear-gradient(180deg, rgba(220,88,109,0.06), rgba(255,255,255,0.02));
     padding: 2rem;
     border-radius: 15px;
 }
@@ -358,7 +341,7 @@ html {
 .contact-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--text);
 }
 
 .contact-details {
@@ -367,7 +350,7 @@ html {
 
 .contact-item {
     margin: 0.5rem 0;
-    color: #555;
+    color: var(--subtext);
 }
 
 .social-links {
@@ -377,7 +360,7 @@ html {
 .social-title {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: var(--text);
 }
 
 .social-list {
@@ -387,22 +370,22 @@ html {
 }
 
 .social-link {
-    color: #667eea;
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .social-link:hover {
-    color: #764ba2;
+    color: var(--accent-hover);
 }
 
 /* Form Styles */
 .contact-form {
-    background: white;
+    background: var(--surface);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px var(--shadow);
 }
 
 .form-group {
@@ -412,32 +395,39 @@ html {
 .form-legend {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--text);
 }
 
 .form-label {
     display: block;
     margin: 1rem 0 0.5rem 0;
-    color: #555;
+    color: var(--subtext);
     font-weight: 500;
 }
 
 .form-input, .form-textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid rgba(76,29,61,0.06);
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    background: transparent;
+    color: var(--text);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(76,29,61,0.35);
 }
 
 .form-input:focus, .form-textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(163,55,87,0.06);
 }
 
 .form-button {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: var(--accent);
     color: white;
     padding: 12px 30px;
     border: none;
@@ -451,19 +441,20 @@ html {
 
 .form-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    background: var(--accent-hover);
+    box-shadow: 0 5px 20px rgba(163,55,87,0.12);
 }
 
 /* Footer */
 .footer {
-    background: #333;
-    color: white;
+    background: linear-gradient(180deg, rgba(220,88,109,0.06), rgba(133,46,78,0.03));
+    color: var(--text);
     text-align: center;
     padding: 2rem;
 }
 
 .footer-text {
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 /* Animations */
